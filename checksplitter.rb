@@ -41,4 +41,6 @@ party_two = CheckSplit.new(6, 122.64)
 puts "Since your meal is #{party_two.set_meal_cost}, and there are #{party_two.set_people_amount} of you, and you're tipping $#{party_two.set_tip}..."
 puts "...that means you each owe $#{party_two.price_divide}."
 
+#seems to work fine, just need to round out those decimals...
+
 binding.pry
