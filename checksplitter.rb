@@ -4,7 +4,11 @@ class CheckSplit
   def initialize (param_one, param_two)
     @people_amount = param_one
     @meal_cost = param_two
-    @tip_amount = @meal_cost * .15
+    @tip_amount = @meal_cost * 0.15
+  end
+  
+  def get_tip
+    @tip_amount
   end
   
   def meal_and_tip
@@ -15,3 +19,5 @@ class CheckSplit
     meal_and_tip / @people_amount
   end
 end
+
+party_one = CheckSplit.new (4, 40)
