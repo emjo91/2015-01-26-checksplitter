@@ -1,10 +1,10 @@
 require "pry"
 
 class CheckSplit
-  def initialize (param_one, param_two, param_three)
+  def initialize (param_one, param_two)
     @people_amount = param_one
     @meal_cost = param_two
-    @tip_amount = param_three
+    @tip_amount = @meal_cost * .15
   end
   
   def meal_and_tip
