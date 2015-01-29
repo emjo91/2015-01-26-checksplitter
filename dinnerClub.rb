@@ -12,6 +12,7 @@ class DiningClub
   def initialize
     @members = {}
     @event = {}
+
   end
 
   def add_member(member)
@@ -54,6 +55,26 @@ class DiningClub
     @event.each do |event, member|
       puts event
     end
+  end
+  
+  #I know this is breaking the SRP...
+  def treat(meal_cost, tip, treater, *diners)
+    cs = CheckSplit.new(meal_cost, tip, diners.length)
+    pay_all = cs.meal_and_tip
+    free_meal = 0
+    
+    diners.each do |diner|
+      if @members.has_key?(treater)
+        @members[treater].spend(pay_all)
+      end
+      if @members.has_key?(diner)
+        @members[diner].spend(free_meal)
+      else
+        add_member(diner)
+        @members[diner].spend(free_meal)
+      end
+    end  
+    @members
   end
   
   # def get_spending_report(member)
